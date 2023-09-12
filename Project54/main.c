@@ -4,6 +4,8 @@
 
 //주어진 트리에 대하여 전위 중위 후위로 링크,배열
 
+//링크를 이용한 순회
+
 typedef struct TreeNode {
 	int data;
 	struct TreeNode* left, * right;
@@ -25,7 +27,7 @@ TreeNode* root = &n11;
 // 전위 순회 함수
 void preorder(TreeNode* root) {
     if (root != NULL) {
-        printf("[%d] ", root->data);
+        printf("%d ", root->data);
         preorder(root->left);
         preorder(root->right);
 
@@ -35,7 +37,7 @@ void preorder(TreeNode* root) {
 void inorder(TreeNode* root) {
     if (root != NULL) {
         inorder(root->left);
-        printf("[%d] ", root->data);
+        printf("%d ", root->data);
         inorder(root->right);
     }
 }
@@ -44,7 +46,7 @@ void postorder(TreeNode* root) {
     if (root != NULL) {
         postorder(root->left);
         postorder(root->right);
-        printf("[%d] ", root->data);
+        printf("%d ", root->data);
         
     }
 }
@@ -84,42 +86,42 @@ void postorderToArray(TreeNode* node) {
 
 int main(void) {
 
-    printf("<Link Tree>\n\n");
-    printf("1.전위 순회=");
+    printf("<Link Tree>\n\n"); //link tree 출력
+    printf("1.전위 순회= ");
     preorder(root);
     printf("\n");
-    printf("2.중위 순회=");
+    printf("2.중위 순회= ");
     inorder(root);
     printf("\n");
-    printf("3.후위 순회=");
+    printf("3.후위 순회= ");
     postorder(root);
     printf("\n");
 
     printf("\n");
 
-    printf("<Array Tree>\n\n");
+    printf("<Array Tree>\n\n"); //array tree 출력
     currentIndex = 0; 
     preorderToArray(root);
-    printf("1.전위 순회=");
+    printf("1.전위 순회= " );
     for (int i = 0; i < currentIndex; i++) {
-        printf("[%d] ", resultArray[i]);
+        printf("%d ", resultArray[i]);
     }
     printf("\n");
-    printf("2.중위 순회=");
+    printf("2.중위 순회= ");
     currentIndex = 0; 
     inorderToArray(root);
 
     for (int i = 0; i < currentIndex; i++) {
-        printf("[%d] ", resultArray[i]);
+        printf("%d ", resultArray[i]);
     }
     printf("\n");
 
-    printf("3.후위 순회=");
+    printf("3.후위 순회= ");
     currentIndex = 0; 
     postorderToArray(root);
 
     for (int i = 0; i < currentIndex; i++) {
-        printf("[%d] ", resultArray[i]);
+        printf("%d ", resultArray[i]);
     }
 
     printf("\n");
